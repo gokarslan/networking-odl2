@@ -22,7 +22,7 @@ from oslo_log import log as logging
 from neutron.api.rpc.agentnotifiers import l3_rpc_agent_api
 from neutron.api.rpc.handlers import l3_rpc
 from neutron.common import rpc as n_rpc
-from neutron.common import topics
+from neutron_lib.agent import topics
 from neutron.db import common_db_mixin
 from neutron.db import extraroute_db
 from neutron.db import l3_agentschedulers_db
