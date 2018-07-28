@@ -24,6 +24,7 @@ from networking_odl.common import constants as odl_const
 from networking_odl.db import db
 from networking_odl.db import models
 from networking_odl.tests.unit import test_base_db
+from neutron_lib.db import api as lib_db_api	
 
 
 class DbTestCase(test_base_db.ODLBaseDbTestCase):
@@ -68,8 +69,8 @@ class DbTestCase(test_base_db.ODLBaseDbTestCase):
     def _test_retry_wrapper(self, decorated_function, receives_context):
         # NOTE(mpeterson): we want to make sure that it's configured
         # to MAX_RETRIES.
-        self.assertEqual(db_api._retry_db_errors.max_retries,
-                         db_api.MAX_RETRIES)
+        self.assertEqual(lib_db_api._retry_db_errors.max_retries,
+                         lib_db_api.MAX_RETRIES)
 
         self._test_retry_exceptions(decorated_function,
                                     self._mock_function, receives_context,
